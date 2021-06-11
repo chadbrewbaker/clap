@@ -1093,8 +1093,9 @@ impl<'help, 'app> Parser<'help, 'app> {
         } else if self.is_set(AS::AllowLeadingHyphen) {
             Ok(ParseResult::MaybeHyphenValue)
         } else {
-            debug!("Parser::parse_long_arg: Didn't match anything");
-            /*
+             Ok(ParseResult::NotFound)
+            /* debug!("Parser::parse_long_arg: Didn't match anything");
+            
             let remaining_args: Vec<_> = remaining_args
                 .iter()
                 .map(|x| x.to_str().expect(INVALID_UTF8))
